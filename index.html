@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>API and Interfaces Documentation</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav id="navbar">
+        <header>API and Interfaces Documentation</header>
+        <ul>
+          <li class="nav-item">
+            <a href="#Introduction" class="nav-link">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Document_Object_Model" class="nav-link"
+              >Document Object Model</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#Fetch_API" class="nav-link">Fetch API</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Notifications_API" class="nav-link">Notifications API</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Service_Worker_API" class="nav-link"
+              >Service Worker API</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>
+          When writing code for the Web, there are a large number of Web APIs
+          available. Below is a list of common and interfaces (object types)
+          that you may be able to use while developing your Web app or site.
+        </p>
+        <br />
+        <p>
+          Web APIs are typically used with JavaScript, although this doesn't
+          always have to be the case.
+        </p>
+      </section>
+
+      <section class="main-section" id="Document_Object_Model">
+        <header>Document Object Model</header>
+        <p>
+          The Document Object Model (DOM) connects web pages to scripts or
+          programming languages by representing the structure of a document—such
+          as the HTML representing a web page—in memory. Usually, that means
+          JavaScript, although modeling HTML, SVG, or XML documents as objects
+          are not part of the core JavaScript language, as such.
+        </p>
+        <br />
+        <p>
+          The DOM represents a document with a logical tree. Each branch of the
+          tree ends in a node, and each node contains objects. DOM methods allow
+          programmatic access to the tree. With them, you can change the
+          document's structure, style, or content. Nodes can also have event
+          handlers attached to them. Once an event is triggered, the event
+          handlers get executed.
+        </p>
+        <h3>DOM interfaces</h3>
+        <ul>
+          <li>Attr</li>
+          <li>CDATASection</li>
+          <li>CharacterData</li>
+          <li>ChildNode</li>
+          <li>Comment</li>
+          <li>CustomEvent</li>
+          <li>Document</li>
+          <li>DocumentFragment</li>
+          <li>DocumentType</li>
+          <li>DOMError</li>
+          <li>DOMException</li>
+          <li>DOMImplementation</li>
+          <li>DOMString</li>
+          <li>DOMTimeStamp</li>
+          <li>DOMStringList</li>
+          <li>DOMTokenList</li>
+          <li>Element</li>
+          <li>Event</li>
+          <li>HTMLCollection</li>
+          <li>EventTarget</li>
+          <li>MutationObserver</li>
+          <li>MutationRecord</li>
+          <li>NamedNodeMap</li>
+          <li>Node</li>
+          <li>NodeFilter</li>
+          <li>NodeIterator</li>
+          <li>NodeList</li>
+          <li>NonDocumentTypeChildNode</li>
+          <li>ParentNode</li>
+          <li>ProcessingInstruction</li>
+          <li>Selection</li>
+          <li>Range</li>
+          <li>Text</li>
+          <li>TextDecoder</li>
+          <li>TextEncoder</li>
+          <li>TimeRanges</li>
+          <li>TreeWalker</li>
+          <li>URL</li>
+          <li>Window</li>
+          <li>Worker</li>
+          <li>XMLDocument</li>
+        </ul>
+      </section>
+      <section class="main-section" id="Fetch_API">
+        <header>Fetch API</header>
+        <p>
+          Fetch provides a generic definition of Request and Response objects
+          (and other things involved with network requests). This will allow
+          them to be used wherever they are needed in the future, whether it’s
+          for service workers, Cache API, and other similar things that handle
+          or modify requests and responses, or any kind of use case that might
+          require you to generate your responses programmatically(that is, the
+          use of computer program or personal programming instructions).
+        </p>
+        <br />
+        <p>
+          The fetch() method of the WindowOrWorkerGlobalScope mixin starts the
+          process of fetching a resource from the network, returning a promise
+          which is fulfilled once the response is available. The promise
+          resolves to the Response object representing the response to your
+          request. The promise does not reject on HTTP errors — it only rejects
+          on network errors. You must use then handlers to check for HTTP
+          errors.
+        </p>
+        <code>const fetchResponsePromise = fetch(resource [, init])</code>
+        <h3>Examples</h3>
+        <p>
+          In our Fetch Request example (see Fetch Request live) we create a new
+          Request object using the relevant constructor, then fetch it using a
+          fetch() call. Since we are fetching an image, we run Body.blob() on
+          the response to give it the proper MIME type so it will be handled
+          properly, then create an Object URL of it and display it in an img
+          element.
+        </p>
+        <code>const myImage = document.querySelector('img');</code>
+        <code>let myRequest = new Request('flowers.jpg');</code>
+        <code>fetch(myRequest)</code>
+        <code>.then(function(response) {</code>
+        <code>if (!response.ok) {</code>
+        <code>throw new Error(`HTTP error! status: ${response.status}`);</code>
+        <code>}</code>
+        <code>return response.blob();</code>
+        <code>})</code>
+        <code>.then(function(response) {</code>
+        <code>myImage.src = objectURL;</code>
+        <code>let objectURL = URL.createObjectURL(response);</code>
+        <code>});</code>
+      </section>
+      <section class="main-section" id="Notifications_API">
+        <header>Notifications API</header>
+        <p>
+          The Notifications API allows web pages to control the display of
+          system notifications to the end user. These are outside the top-level
+          browsing context viewport, so therefore can be displayed even when the
+          user has switched tabs or moved to a different app. The API is
+          designed to be compatible with existing notification systems, across
+          different platforms.
+        </p>
+      </section>
+      <section class="main-section" id="Service_Worker_API">
+        <header>Service Worker API</header>
+        <p>
+          Service workers essentially act as proxy servers that sit between web
+          applications, the browser, and the network (when available). They are
+          intended, among other things, to enable the creation of effective
+          offline experiences, intercept network requests and take appropriate
+          action based on whether the network is available, and update assets
+          residing on the server. They will also allow access to push
+          notifications and background sync APIs.
+        </p>
+        <br />
+        <p>
+          Service workers only run over HTTPS, for security reasons. Having
+          modified network requests, wide open to man in the middle attacks
+          would be really bad. In Firefox, Service Worker APIs are also hidden
+          and cannot be used when the user is in private browsing mode.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
